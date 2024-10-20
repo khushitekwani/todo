@@ -3,7 +3,11 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: [],
+    methods:["POST","GET"],
+    credentials:true
+}));
 app.use(express.json());
 
 const PORT = process.env.PORT;
@@ -92,7 +96,7 @@ app.patch('/tasks/:id/complete', async (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb://localhost:27017/todo-app")
     .then(() => {
         console.log("Connected to DB");
         app.listen(PORT, () => console.log("Server is running"));
