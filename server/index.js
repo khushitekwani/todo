@@ -6,8 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
-
+const PORT = process.env.PORT;
+require('dotenv').config
 // Task Schema
 const taskSchema = mongoose.Schema({
     title: { type: String, required: true },
@@ -92,7 +92,7 @@ app.patch('/tasks/:id/complete', async (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/todo-app")
+mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         console.log("Connected to DB");
         app.listen(PORT, () => console.log("Server is running"));
