@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 app.use(cors({
-    origin: [],
+    origin: ["https://vercel.com/khushi-tekwanis-projects/todo"],
     methods:["POST","GET"],
     credentials:true
 }));
