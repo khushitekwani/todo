@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://to-do-application-sepia.vercel.app";
+axios.defaults.baseURL = "http://localhost:3000/";
 
 function App() {
   const [addSection, setAddSection] = useState(false);
